@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Award,
   Check,
@@ -41,6 +43,8 @@ import {
 import { AffiliateCtaButton } from './AffiliateCtaButton';
 import { FaqAccordion } from './FaqAccordion';
 import { ProductVisualFrame } from './ProductVisualFrame';
+import { AdsterraBannerSlot } from './ads/AdsterraBannerSlot';
+import { AdsterraNativeSlot } from './ads/AdsterraNativeSlot';
 
 interface ArticleBodyProps {
   affiliateUrl: string;
@@ -165,6 +169,8 @@ export function ArticleBody({
         </div>
       </section>
 
+      {/* Optional Mid-Article Adsterra 250x300px Banner */}
+      <AdsterraBannerSlot placement="article" />
 
       {/* D. Quick Review Summary */}
       <section id="quick-review-summary" className="scroll-anchor mt-12 mm-reveal">
@@ -278,6 +284,8 @@ export function ArticleBody({
         <AffiliateCtaButton cta={CTA_PLACEMENTS.productImage} affiliateUrl={affiliateUrl} boxed />
       </section>
 
+      {/* Adsterra Native Banner Slot (renders automatically when configured) */}
+      <AdsterraNativeSlot />
 
       {/* G. MapMatic AI Mega Bundle Deal */}
       <section id="mapmatic-ai-mega-bundle" className="scroll-anchor mt-12">

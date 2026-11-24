@@ -1,3 +1,5 @@
+'use client';
+
 import { Compass, Globe2, Layers, MapPin, Package } from 'lucide-react';
 
 export type VisualFrameVariant = 'hero' | 'dashboard' | 'bundle' | '3d' | 'bonus' | 'pricing';

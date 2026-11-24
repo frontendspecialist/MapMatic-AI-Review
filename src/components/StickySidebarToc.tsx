@@ -1,5 +1,8 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { ArrowRight, ChevronDown, ChevronRight, ExternalLink, ShieldCheck } from 'lucide-react';
+import { AdsterraBannerSlot } from './ads/AdsterraBannerSlot';
 
 export interface TocHeadingGroup {
   id: string;
@@ -152,7 +155,10 @@ export function StickySidebarToc({ affiliateUrl = '', contentVersion }: StickySi
         </ul>
       </nav>
 
-      {/* 2. Official Offer Quick Access Card directly below Static Table of Contents */}
+      {/* 2. Adsterra 250x300px Banner Slot (renders automatically when enabled) */}
+      <AdsterraBannerSlot placement="sidebar" />
+
+      {/* 3. Official Offer Quick Access Card directly below Static Table of Contents */}
       <div
         aria-label="Official MapMatic AI Offer Summary"
         data-testid="sidebar-offer-card"

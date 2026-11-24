@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { ArrowRight, ExternalLink, MapPin, Menu, Moon, Sun, X } from 'lucide-react';
 

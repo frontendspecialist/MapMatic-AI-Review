@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { CtaConfig } from '../data/reviewContent';
 

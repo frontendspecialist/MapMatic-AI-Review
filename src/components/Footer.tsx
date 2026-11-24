@@ -1,4 +1,7 @@
+'use client';
+
 import { useState } from 'react';
+import Link from 'next/link';
 import { MapPin, X } from 'lucide-react';
 
 type LegalDocKey = 'privacy' | 'disclosure' | 'terms' | 'contact' | null;
@@ -119,6 +122,14 @@ export function Footer() {
                   >
                     Contact
                   </button>
+                </li>
+                <li>
+                  <Link
+                    href="/ads-setup"
+                    className="hover:text-[#7024E8] dark:hover:text-[#A66BFF]"
+                  >
+                    Ad Slots &amp; Monetization Setup
+                  </Link>
                 </li>
               </ul>
             </div>

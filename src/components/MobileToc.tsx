@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, List } from 'lucide-react';
 import { useArticleToc } from './StickySidebarToc';

@@ -1,17 +1,20 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { PLACEHOLDER_CONFIG } from './data/reviewContent';
-import { Header } from './components/Header';
-import { MobileToc } from './components/MobileToc';
-import { StickySidebarToc } from './components/StickySidebarToc';
-import { ArticleBody } from './components/ArticleBody';
-import { Footer } from './components/Footer';
-import { BackToTop } from './components/BackToTop';
+import { PLACEHOLDER_CONFIG } from '../data/reviewContent';
+import { Header } from './Header';
+import { MobileToc } from './MobileToc';
+import { StickySidebarToc } from './StickySidebarToc';
+import { ArticleBody } from './ArticleBody';
+import { Footer } from './Footer';
+import { BackToTop } from './BackToTop';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function getInitialTheme(): 'dark' | 'light' {
+  if (typeof window === 'undefined') return 'dark';
   try {
     const saved = localStorage.getItem('mm_theme_preference');
     if (saved === 'dark' || saved === 'light') return saved;
@@ -24,13 +27,17 @@ function getInitialTheme(): 'dark' | 'light' {
   return 'dark';
 }
 
-export default function App() {
-  const [theme, setTheme] = useState<'dark' | 'light'>(getInitialTheme);
+export function ReviewLandingPage() {
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   const affiliateUrl = PLACEHOLDER_CONFIG.AFFILIATE_URL;
   const singlePrice = PLACEHOLDER_CONFIG.SINGLE_PRICE;
   const bundlePrice = PLACEHOLDER_CONFIG.BUNDLE_PRICE;
   const guaranteePeriod = PLACEHOLDER_CONFIG.GUARANTEE_PERIOD;
+
+  useEffect(() => {
+    setTheme(getInitialTheme());
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
