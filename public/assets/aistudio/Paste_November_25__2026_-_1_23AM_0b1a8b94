@@ -1,0 +1,920 @@
+# PROJECT: MAPMATIC AI – PREMIUM SINGLE-PAGE AFFILIATE REVIEW BLOGGER XML THEME
+
+Act as a senior Blogger XML theme developer, professional UI/UX designer, conversion-rate optimization specialist, and SEO content strategist with 10+ years of experience building high-converting affiliate review websites for Tier-1 audiences (USA, UK, Canada, Australia, and Europe).
+
+Your mission is to design and develop a complete, production-ready, premium Blogger XML theme for a professional, luxury-style, single-product affiliate review website.
+
+The main product is **MapMatic AI**.
+
+The primary SEO keyword is:
+
+**MapMatic AI Review**
+
+This website must look like a premium SaaS product review publication rather than a traditional Blogger blog. Its primary purpose is to provide a detailed, trustworthy, SEO-optimized software review, explain product features and pricing, compare available packages, introduce bonuses, answer buyer questions, and generate affiliate conversions.
+
+The design should combine premium SaaS aesthetics, elegant typography, modern product presentation, sophisticated animations, and strategic affiliate CTA placement.
+
+## 1. BRANDING AND DESIGN DIRECTION
+
+Create a visually impressive, premium, luxury-style dark and light mode design.
+
+Design inspiration:
+- Premium SaaS landing pages.
+- Modern AI software review websites.
+- High-converting affiliate product review pages.
+- Elegant technology magazines.
+- Professional software comparison platforms.
+
+Color palette:
+
+Dark mode:
+- Primary background: #111214
+- Secondary background: #191A20
+- Card background: #202129
+- Primary accent: #7828FF
+- Secondary accent: #A66BFF
+- Highlight: #DCC8FF
+- Main text: #FFFFFF
+- Secondary text: #B8B8C4
+- Borders: #34313E
+
+Light mode:
+- Primary background: #FFFFFF
+- Secondary background: #F6F4FA
+- Card background: #FFFFFF
+- Primary accent: #7024E8
+- Secondary accent: #914CFF
+- Main text: #171421
+- Secondary text: #666273
+- Borders: #E7E1EF
+
+Requirements:
+- Professional dark/light mode toggle.
+- Save the selected theme using localStorage.
+- Automatically detect the visitor's system preference on the first visit.
+- Smooth theme transition.
+- Premium gradients and subtle background lighting.
+- Beautiful CTA buttons with hover effects.
+- Modern rounded cards.
+- Carefully designed spacing and typography.
+- Excellent mobile, tablet, laptop, and desktop responsiveness.
+
+Use premium typography such as Inter, Manrope, or Plus Jakarta Sans.
+
+## 2. BLOGGER XML DEVELOPMENT REQUIREMENTS
+
+Generate a complete, valid, installable Blogger XML theme.
+
+Technical requirements:
+- Compatible with modern Blogger XML standards.
+- Correct Blogger XML namespaces.
+- Proper b:skin, b:template-skin, b:section, b:widget, b:includable and data bindings.
+- No invalid XML syntax.
+- No duplicated widget IDs.
+- Properly escaped XML characters.
+- JavaScript and CSS safely enclosed in CDATA where appropriate.
+- Editable Blogger Layout sections.
+- SEO-friendly Blogger post rendering.
+- All important elements must be configurable.
+- No WordPress or Next.js code.
+- No React dependency.
+- No incomplete pseudocode.
+- No missing CSS or JavaScript dependencies.
+
+Deliver a complete XML file, not a visual mockup.
+
+## 3. SINGLE REVIEW PAGE STRUCTURE
+
+Create the following complete page architecture.
+
+### A. Fixed Premium Header
+
+Create a fixed, elegant navigation header containing:
+
+- Text-based logo: MAPMATIC AI REVIEW.
+- Small logo icon.
+- Review navigation.
+- Features.
+- Pricing.
+- Bonuses.
+- FAQ.
+- Search or navigation controls.
+- Dark/light mode toggle.
+
+Header requirements:
+- Remain fixed during scrolling.
+- Transparent-to-solid background transition.
+- Subtle backdrop blur.
+- Elegant bottom border.
+- Responsive hamburger navigation.
+- Smooth scrolling to sections.
+- Correct anchor positioning below the fixed header.
+
+### B. Hero Section
+
+Build an attractive, high-converting hero section.
+
+Primary heading:
+
+MapMatic AI Review 2026: Features, Pricing, Mega Bundle Deal & Bonuses Explained
+
+Supporting headline:
+
+Discover how MapMatic AI helps users create interactive maps, explore AI-powered geographical mapping, and build engaging visual map experiences.
+
+Include:
+- Short product introduction.
+- Product preview image.
+- Product category badge.
+- Key product benefits.
+- Primary affiliate CTA.
+- Secondary pricing CTA.
+- Product offer information.
+- Trust-oriented disclosure.
+
+Primary CTA example:
+
+"Get Instant Access to MapMatic AI"
+
+Secondary CTA:
+
+"Explore the Mega Bundle Deal"
+
+All CTA buttons must use a clearly editable affiliate URL variable.
+
+### C. Affiliate Disclosure
+
+Place a visible affiliate disclosure immediately before or near the first affiliate CTA.
+
+Explain that the website may earn a commission when visitors purchase through affiliate links, without additional cost to them.
+
+Keep the disclosure readable and professional.
+
+### D. Quick Review Summary
+
+Create a premium summary card containing:
+
+- Product name.
+- Product category.
+- Main purpose.
+- Key features.
+- Available purchase options.
+- Pricing information.
+- Bundle information.
+- Money-back guarantee information.
+- Recommended user categories.
+
+Never invent an independent product rating, customer rating, or hands-on testing experience.
+
+### E. Product Introduction
+
+Section heading:
+
+What Is MapMatic AI?
+
+Explain the product, its intended purpose, its mapping capabilities, and potential applications.
+
+Include the keyword naturally.
+
+### F. MapMatic AI Features
+
+Create visually engaging feature cards with appropriate icons and descriptions.
+
+Cover the verified features visible in the supplied product materials.
+
+Use separate sections for:
+- AI-powered map creation.
+- Interactive geographical mapping.
+- Custom map creation.
+- Map design and visualization.
+- Website mapping applications.
+- Available 3D mapping capabilities.
+- Map presentation and customization.
+- Other verified functionality.
+
+Do not advertise unverified functions as confirmed product features.
+
+Include a product screenshot after each major feature group where appropriate.
+
+Every product screenshot must be clickable and linked to the affiliate URL.
+
+### G. MapMatic AI Mega Bundle Deal
+
+Make this one of the most visually prominent sections.
+
+Section heading:
+
+MapMatic AI Mega Bundle Deal – Complete Offer Breakdown
+
+Use the supplied sales-page screenshot as the visual reference.
+
+Present:
+- Main MapMatic AI offer.
+- Mega Bundle Deal.
+- Included upgrade products.
+- Individual product cards.
+- Available bonuses.
+- Pricing comparison.
+- Total package value, only when verified.
+- Bundle purchase CTA.
+
+Create premium purple-gradient product cards with product-cover images.
+
+Each product card should have:
+- Product cover.
+- Product name.
+- Short description.
+- Main benefits.
+- Included features.
+- Relevant purchase information.
+
+Do not invent product names, bonus names, package values, or upgrade prices.
+
+### H. MapMatic AI Pricing
+
+Section heading:
+
+MapMatic AI Pricing – Single Purchase vs Mega Bundle Deal
+
+Create a premium pricing comparison table.
+
+Include two main packages:
+
+1. MapMatic AI Single Purchase / Front-End Offer.
+2. MapMatic AI Mega Bundle Deal.
+
+Pricing fields must reflect the original offer materials.
+
+IMPORTANT SOURCE DATA REQUIREMENT:
+
+Extract the exact single-purchase price, Mega Bundle Deal price, included upgrades, and money-back guarantee duration from the supplied product sales-page screenshot.
+
+The supplied screenshot is low resolution. If an exact value cannot be reliably read, show an editable placeholder instead of manufacturing a price.
+
+Use these editable fields:
+
+SINGLE_PRICE = [VERIFY ORIGINAL FRONT-END PRICE]
+
+BUNDLE_PRICE = [VERIFY ORIGINAL MEGA BUNDLE PRICE]
+
+GUARANTEE_PERIOD = [VERIFY OFFICIAL GUARANTEE PERIOD]
+
+BUNDLE_CONTENTS = [VERIFY INCLUDED PRODUCTS AND UPGRADES]
+
+Do not invent original prices, discounts, countdown offers, or savings percentages.
+
+Include:
+- Individual purchase comparison.
+- Bundle benefits.
+- Pricing table.
+- Recommended package explanation based on verified inclusions.
+- Affiliate CTA below each package.
+
+### I. Money-Back Guarantee
+
+Create a separate trust-building section.
+
+Heading:
+
+MapMatic AI Money-Back Guarantee – What Buyers Should Know
+
+Explain the official refund period, refund eligibility, and applicable conditions using verified sales-page information.
+
+Never assume a 30-day, 60-day, or 14-day guarantee.
+
+If the exact duration or conditions are unavailable, show an editable verification placeholder.
+
+### J. MapMatic AI Features and Bonus
+
+Create a dedicated section explaining the available bonuses.
+
+Use attractive bonus cards with:
+- Bonus cover image.
+- Bonus title.
+- Description.
+- Benefits.
+- Inclusion status.
+- Relevant CTA.
+
+Only include bonuses confirmed by the official offer.
+
+### K. How to Use MapMatic AI
+
+Create a beginner-friendly tutorial.
+
+Suggested structure:
+
+1. Access the official MapMatic AI offer.
+2. Complete the purchase process.
+3. Log in to the application.
+4. Explore the dashboard.
+5. Select an appropriate mapping workflow.
+6. Configure the available options.
+7. Generate or customize a map.
+8. Preview and use the finished map.
+
+Clearly distinguish verified procedures from general illustrative workflow guidance.
+
+### L. Individual Product and Upgrade Analysis
+
+Create separate premium sections for each verified package or upgrade shown in the uploaded screenshot.
+
+Each section must contain:
+- Product cover image.
+- Product title.
+- What it offers.
+- Main functions.
+- Key benefits.
+- Intended users.
+- How it relates to the main MapMatic AI product.
+- Whether it is included in the Mega Bundle.
+- Relevant price, when verified.
+
+Use a consistent visual structure while varying the card layouts to make the page visually interesting.
+
+### M. Competitor and Alternative Comparison
+
+Create detailed comparison sections:
+
+1. MapMatic AI vs Mapbox.
+2. MapMatic AI vs competitor software.
+3. MapMatic AI front end vs OTO.
+4. MapMatic AI vs free AI map maker tools.
+5. Best AI tools for geographical mapping.
+
+Use a balanced comparison based on verified specifications.
+
+Explain differences in:
+- Intended use.
+- Technical requirements.
+- Mapping capabilities.
+- Customization.
+- Ease of use.
+- Pricing models.
+- Target audience.
+- Limitations.
+
+Do not fabricate competitor prices or product capabilities.
+
+### N. Who Should Use MapMatic AI?
+
+Discuss relevant audiences:
+- Digital marketers.
+- Website owners.
+- Bloggers.
+- Content creators.
+- Entrepreneurs.
+- Small business owners.
+- Educators.
+- Geographic information enthusiasts.
+- Developers.
+- Agencies.
+
+Explain relevant potential use cases without exaggerating the product's capabilities.
+
+### O. Advantages and Disadvantages
+
+Present separate premium cards.
+
+Advantages should be based on verified product features and legitimate use cases.
+
+Disadvantages should include actual limitations, uncertainties, or considerations.
+
+Never claim the software is perfect or suitable for everyone.
+
+### P. Final Verdict
+
+Create an editorial conclusion.
+
+Heading:
+
+Is MapMatic AI Worth It in 2026? Final Verdict
+
+Summarize its intended applications, available features, pricing considerations, bundle contents, and target audience.
+
+Include a strong final affiliate CTA.
+
+## 4. SEO CONTENT REQUIREMENTS – 4,000+ WORDS
+
+This is extremely important.
+
+Create a complete, professionally written, human-sounding, EEAT-driven article containing at least 4,000 words of substantive visible article content.
+
+The article must be ready to publish.
+
+Writing requirements:
+- Professional English.
+- Accessible seventh-to-eighth-grade readability.
+- Natural, conversational explanations.
+- Detailed product analysis.
+- Informative paragraphs.
+- Search-intent-focused headings.
+- Semantic keyword coverage.
+- Natural internal section references.
+- Trustworthy and balanced explanations.
+- No keyword stuffing.
+- No repetitive filler.
+- No artificial word-count inflation.
+
+Primary keyword:
+
+"MapMatic AI Review"
+
+Use the primary keyword naturally in:
+- SEO title.
+- H1.
+- Opening paragraph.
+- Introduction.
+- Relevant H2/H3 headings.
+- Product analysis.
+- Final verdict.
+- Meta description.
+
+Include ALL of the following secondary and long-tail keywords naturally throughout different headings, subtitles, paragraphs, comparison sections, and FAQs.
+
+KEYWORD MASTER LIST:
+
+1. mapmatic ai review
+2. mapmatic ai
+3. mapmatic ai bundle
+4. mapmatic ai bundle deal
+5. mapmatic ai pricing
+6. mapmatic ai features and bonus
+7. what is mapmatic ai bundle
+8. mapmatic ai discount code
+9. mapmatic ai vs competitor software
+10. ai interactive map generator
+11. how to use mapmatic ai
+12. mapmatic ai vs mapbox
+13. free ai map maker
+14. ai custom map creator for website
+15. best ai tools for geographical mapping
+16. create 3d maps with ai
+
+Use the keywords according to search intent.
+
+Avoid unnatural repetition. Give each keyword a relevant content context.
+
+## 5. MINIMUM 20+ FAQ QUESTIONS
+
+Create a dedicated, attractive FAQ accordion section with at least 22 detailed, genuinely useful questions and answers.
+
+Include these questions:
+
+1. What is MapMatic AI?
+2. How does MapMatic AI work?
+3. Is MapMatic AI suitable for beginners?
+4. What are the main MapMatic AI features?
+5. What is included in the MapMatic AI Mega Bundle?
+6. What is the difference between MapMatic AI front end and OTO?
+7. How much does MapMatic AI cost?
+8. Is MapMatic AI available as a single purchase?
+9. What is included in the MapMatic AI bundle deal?
+10. Does MapMatic AI offer a money-back guarantee?
+11. Is there a MapMatic AI discount code?
+12. How do I access MapMatic AI after purchasing?
+13. How to use MapMatic AI?
+14. Can MapMatic AI create interactive maps?
+15. Can I use MapMatic AI to create custom maps for websites?
+16. Can I create 3D maps with AI?
+17. Is MapMatic AI better than Mapbox?
+18. What are the best AI tools for geographical mapping?
+19. Is there a free AI map maker?
+20. Who should buy the MapMatic AI Mega Bundle?
+21. Is MapMatic AI worth buying in 2026?
+22. What should I check before purchasing MapMatic AI?
+
+Write meaningful answers rather than one-sentence generic responses.
+
+Never make unsupported claims about pricing, guarantees, compatibility, or product functionality.
+
+Implement a beautiful accordion with:
+- Smooth open/close animation.
+- Plus/minus icons.
+- Accessible controls.
+- Mobile-friendly spacing.
+- Keyboard navigation.
+
+## 6. AFFILIATE CTA STRATEGY – MINIMUM 10 DIFFERENT CTA PLACEMENTS
+
+Conversion optimization is a major priority.
+
+Build at least 10 visually distinct CTA placements throughout the page.
+
+Every CTA must link to one editable affiliate destination.
+
+Use a centralized variable or clearly documented replacement field:
+
+AFFILIATE_URL = [INSERT YOUR MAPMATIC AI AFFILIATE LINK]
+
+Recommended CTA placements:
+
+1. Hero CTA: "Get Instant Access to MapMatic AI"
+2. Quick Review CTA: "Check the Current MapMatic AI Offer"
+3. Feature CTA: "Explore MapMatic AI Features"
+4. Product Image CTA: "View the Official Product"
+5. Bundle CTA: "Unlock the MapMatic AI Mega Bundle"
+6. Pricing CTA: "See Current Pricing & Package Options"
+7. Bonus CTA: "Explore the Available Bonuses"
+8. Tutorial CTA: "Get Started with MapMatic AI"
+9. Comparison CTA: "Explore the Official MapMatic AI Deal"
+10. Mid-Article CTA: "Check Availability of the Current Offer"
+11. Pre-FAQ CTA: "Discover the Complete Bundle"
+12. Final CTA: "Get MapMatic AI Today"
+
+Vary the CTA wording and presentation.
+
+CTA styling:
+- Premium purple gradients.
+- Attractive hover transitions.
+- Subtle glow effects.
+- Clear visual hierarchy.
+- Responsive sizing.
+- High contrast.
+- Touch-friendly buttons.
+
+Use appropriate affiliate link attributes:
+
+target="_blank"
+
+rel="sponsored nofollow noopener"
+
+All product-related images must also be clickable and linked to the same affiliate URL.
+
+Never hide affiliate destinations or use misleading button wording.
+
+## 7. PRODUCT IMAGE PRESENTATION
+
+Product images are essential.
+
+Create image sections for:
+- Main MapMatic AI product cover.
+- Main dashboard screenshot.
+- Feature illustrations.
+- Mega Bundle product cover.
+- Individual upgrade covers.
+- Bonus covers.
+- Mapping examples.
+- Final offer presentation.
+
+Create configurable image URL placeholders.
+
+Example:
+
+PRODUCT_MAIN_IMAGE = [INSERT PRODUCT IMAGE URL]
+
+PRODUCT_DASHBOARD_IMAGE = [INSERT DASHBOARD IMAGE URL]
+
+MEGA_BUNDLE_IMAGE = [INSERT BUNDLE IMAGE URL]
+
+Each product image must be wrapped inside an affiliate anchor tag.
+
+Every image must have:
+- Descriptive alt text.
+- Lazy loading where appropriate.
+- Explicit width and height.
+- Responsive sizing.
+- Appropriate object-fit behavior.
+- Affiliate-linked image wrapping.
+
+Use attractive product image frames and subtle hover animations.
+
+Do not use unrelated stock images as actual product screenshots.
+
+## 8. RIGHT-SIDE STICKY TABLE OF CONTENTS
+
+This is a mandatory design feature.
+
+Create a premium sticky right sidebar for the desktop article layout.
+
+The main article should occupy approximately 70–75% of the available content width, with the right sidebar taking approximately 25–30%.
+
+Sidebar functionality:
+- Automatically generate a Table of Contents from article H2 and H3 headings.
+- Generate clickable anchor links.
+- Highlight the currently active section.
+- Smooth scrolling.
+- Collapsible nested headings.
+- Sticky positioning.
+- Proper offset below the fixed header.
+- Maintain sidebar visibility while scrolling.
+- Avoid overlapping the footer.
+
+Add an optional 250x300 banner advertisement slot inside the sidebar.
+
+On mobile devices:
+- Hide the desktop sticky sidebar.
+- Display the Table of Contents as a collapsible block above the article.
+- Keep all section links usable.
+
+Use IntersectionObserver for active-section detection.
+
+## 9. ADSTERRA ADVERTISEMENT INTEGRATION
+
+Create dedicated Blogger Layout widget sections for Adsterra advertisements.
+
+The Layout must contain clearly labeled HTML/JavaScript gadget locations where I can paste the original Adsterra scripts.
+
+IMPORTANT: I need real, editable Blogger Layout widget slots, not decorative advertisement placeholders or a fake file-upload button.
+
+Create the following separate advertisement locations:
+
+A. Adsterra Social Bar:
+- Dedicated Social Bar script widget.
+- Easily editable from Blogger Layout.
+- Footer-level or recommended global script placement.
+- Do not execute duplicate Social Bar scripts.
+
+B. Adsterra Native Banner:
+- Dedicated native advertisement widget.
+- Positioned within the review content at a natural break.
+- Responsive width.
+- Suitable reserved container space.
+
+C. Adsterra 250x300 Banner:
+- Dedicated 250px × 300px advertisement slot.
+- Suitable for the right sidebar.
+- Responsive on smaller screens.
+
+D. Adsterra 728x90 Banner:
+- Dedicated 728px × 90px banner widget.
+- Suitable for the top or middle article advertisement placement.
+- Responsive fallback for smaller screens.
+
+Create four individually identifiable and editable Blogger HTML/JavaScript gadget areas.
+
+Use clear widget names:
+
+- Adsterra Social Bar
+- Adsterra Native Banner
+- Adsterra 250x300 Banner
+- Adsterra 728x90 Banner
+
+Technical requirements:
+- Easy script replacement.
+- No duplicated ad scripts.
+- No overlapping content.
+- Reserve advertisement space to minimize cumulative layout shift.
+- Desktop/mobile responsive behavior.
+- Advertisement containers must be identifiable.
+- Do not invent real Adsterra publisher scripts.
+
+## 10. BLOGGER LAYOUT WIDGET SECTIONS
+
+Create a fully customizable Blogger Layout interface.
+
+Separate widget sections:
+
+1. Header Widget.
+2. Top Banner Advertisement.
+3. Main Review Article.
+4. Right Sidebar.
+5. Sidebar Table of Contents.
+6. Sidebar 250x300 Advertisement.
+7. Native Advertisement.
+8. 728x90 Advertisement.
+9. Footer Widgets.
+10. Social Bar Advertisement.
+
+All relevant areas must have editable Blogger sections and valid widget IDs.
+
+Keep the design visually clean even when an advertisement widget is empty.
+
+## 11. GSAP ANIMATIONS AND MICRO-INTERACTIONS
+
+Use GSAP for premium animations.
+
+Where supported, use GSAP and ScrollTrigger.
+
+Animations:
+- Hero headline entrance.
+- Product image reveal.
+- Smooth section entrances.
+- Feature card stagger animation.
+- Bundle product reveal.
+- Pricing card animation.
+- CTA hover movement.
+- Subtle background effects.
+- FAQ opening transitions.
+- Back-to-top appearance.
+- Scroll-based visual highlights.
+
+Requirements:
+- Smooth and professional, not excessive.
+- No animation that obstructs reading.
+- Avoid delaying article rendering.
+- Use lazy initialization where appropriate.
+- Provide non-GSAP CSS fallbacks.
+- Respect prefers-reduced-motion.
+- Prevent layout shifting.
+
+Do not overload the theme with unnecessary animation libraries.
+
+## 12. FIXED BACK-TO-TOP BUTTON
+
+Build a floating Back to Top button.
+
+Requirements:
+- Fixed bottom-right placement.
+- Appears after the visitor scrolls down.
+- Smooth scrolling to the page top.
+- Premium circular purple design.
+- Up-arrow icon.
+- Attractive hover animation.
+- Accessible button label.
+- Responsive positioning.
+
+## 13. FULL CUSTOM SCROLLBAR
+
+Create custom scrollbar styling throughout the theme.
+
+Requirements:
+- Modern scrollbar design.
+- Dark mode purple scrollbar.
+- Light mode purple scrollbar.
+- Custom scrollbar track.
+- Rounded scrollbar thumb.
+- Hover transition.
+- WebKit support.
+- Firefox scrollbar-color and scrollbar-width support.
+
+Avoid overly narrow scrollbars that reduce usability.
+
+## 14. FOOTER AND DYNAMIC COPYRIGHT YEAR
+
+Create a premium footer containing:
+- Website logo.
+- Short brand description.
+- Navigation links.
+- Privacy Policy.
+- Affiliate Disclosure.
+- Terms and Conditions.
+- Contact.
+- Copyright notice.
+
+The year must update automatically using JavaScript.
+
+Example:
+
+Copyright © 2026 MAPMATIC AI REVIEW. All Rights Reserved.
+
+Do not hardcode the year.
+
+Use the dynamic current year.
+
+## 15. ON-PAGE SEO AND TECHNICAL SEO
+
+Implement professional on-page SEO.
+
+Requirements:
+- SEO-optimized title tag.
+- Meta description.
+- Canonical URL.
+- Responsive viewport.
+- Open Graph tags.
+- Twitter Card metadata.
+- Proper heading structure.
+- Descriptive image alt text.
+- Semantic HTML5.
+- Article navigation.
+- Internal anchor links.
+- Clean URL structure.
+- Breadcrumb navigation.
+- Fast-loading images.
+- Lazy loading.
+- Optimized CSS and JavaScript.
+
+Use appropriate structured data:
+- Article or BlogPosting.
+- BreadcrumbList.
+- FAQPage only when appropriate under current search-engine eligibility requirements.
+
+Do not fabricate:
+- Product review ratings.
+- Aggregate ratings.
+- Customer counts.
+- Testimonials.
+- Awards.
+- Independent testing results.
+- Pricing claims.
+
+Any structured data must match information visibly presented on the page.
+
+## 16. PERFORMANCE AND RESPONSIVENESS
+
+The theme must be optimized for:
+- Google PageSpeed Insights.
+- Mobile usability.
+- Core Web Vitals.
+- Fast loading.
+- Minimal layout shifting.
+- Clean rendering.
+
+Avoid:
+- Heavy unnecessary JavaScript.
+- Unnecessary third-party libraries.
+- Render-blocking resources.
+- Oversized images.
+- Excessive DOM elements.
+- Unused CSS.
+- Automatic audio or video playback.
+
+Target a professional experience on both low-end mobile devices and modern desktop computers.
+
+## 17. AFFILIATE CONVERSION OPTIMIZATION
+
+Conversion optimization should influence every important section.
+
+Use:
+- Clear value propositions.
+- Strategically placed CTAs.
+- Informative pricing comparison.
+- Attractive product images.
+- Trustworthy disclosures.
+- Readable benefit statements.
+- Clear package differences.
+- Logical purchasing guidance.
+- Contextual affiliate links.
+
+Do not use:
+- Fake countdown timers.
+- False scarcity.
+- Fake testimonials.
+- Fabricated user numbers.
+- Misleading discount claims.
+- Unsupported earnings claims.
+
+The website should build genuine buyer confidence.
+
+## 18. FINAL DELIVERABLES
+
+Produce the following deliverables:
+
+DELIVERABLE 1:
+Complete Blogger XML theme source code.
+
+The XML must be valid, complete, installable, and ready to upload through Blogger Theme → Restore/Upload.
+
+DELIVERABLE 2:
+Complete MapMatic AI Review article HTML.
+
+Provide the entire 4,000+ word article separately, ready to paste into Blogger Post Editor → HTML View.
+
+All article headings, sections, pricing tables, product cards, affiliate CTA buttons, product images, and 22+ FAQs must be included.
+
+The HTML must integrate with the XML theme styling.
+
+DELIVERABLE 3:
+Affiliate link configuration instructions.
+
+Explain exactly where to replace AFFILIATE_URL and product image URLs.
+
+DELIVERABLE 4:
+Adsterra integration instructions.
+
+Explain how to add the Social Bar, Native Banner, 250x300 banner, and 728x90 banner scripts using Blogger Layout HTML/JavaScript gadgets.
+
+DELIVERABLE 5:
+Blogger installation and customization instructions.
+
+Explain:
+- How to install the XML theme.
+- How to create and publish the review post.
+- How to insert the article HTML.
+- How to customize product images.
+- How to configure the affiliate URL.
+- How to set up Adsterra widgets.
+- How to test dark/light mode.
+- How to test mobile responsiveness.
+- How to verify the Table of Contents.
+- How to test all affiliate CTAs.
+
+## FINAL QUALITY STANDARD
+
+Think like a senior SaaS affiliate website designer, an experienced Blogger XML developer, and an SEO specialist with over 10 years of experience.
+
+The result must look like an expensive, professionally developed affiliate review website.
+
+Do not produce a generic Blogger theme.
+
+Do not produce a short landing page.
+
+Do not omit the full review content.
+
+Do not omit the right sticky Table of Contents.
+
+Do not omit Adsterra widget sections.
+
+Do not omit the 7+ different affiliate CTA placements.
+
+Do not omit the 20+ FAQ questions.
+
+Do not invent product pricing or guarantee information.
+
+Prioritize three things equally:
+
+1. Premium luxury design and user experience.
+2. SEO-rich, trustworthy, detailed content.
+3. High-converting affiliate link placement.
+
+Generate the complete working deliverables rather than merely explaining how to build them.

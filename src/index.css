@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F6F4FA;
+  --bg-card: #FFFFFF;
+  --accent-primary: #7024E8;
+  --accent-secondary: #914CFF;
+  --accent-highlight: #DCC8FF;
+  --text-main: #171421;
+  --text-secondary: #666273;
+  --border-color: #E7E1EF;
+  --scrollbar-track: #F1ECF8;
+  --scrollbar-thumb: #7024E8;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html.dark {
+  --bg-primary: #111214;
+  --bg-secondary: #191A20;
+  --bg-card: #202129;
+  --accent-primary: #7828FF;
+  --accent-secondary: #A66BFF;
+  --accent-highlight: #DCC8FF;
+  --text-main: #FFFFFF;
+  --text-secondary: #B8B8C4;
+  --border-color: #34313E;
+  --scrollbar-track: #191A20;
+  --scrollbar-thumb: #7828FF;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.scroll-anchor {
+  scroll-margin-top: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
