@@ -8,7 +8,6 @@ import { StickySidebarToc } from './components/StickySidebarToc';
 import { ArticleBody } from './components/ArticleBody';
 import { Footer } from './components/Footer';
 import { BackToTop } from './components/BackToTop';
-import { DeliverablesModal } from './components/DeliverablesModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,14 +26,11 @@ function getInitialTheme(): 'dark' | 'light' {
 
 export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(getInitialTheme);
-  const [deliverablesOpen, setDeliverablesOpen] = useState(false);
 
-  const [affiliateUrl, setAffiliateUrl] = useState<string>(PLACEHOLDER_CONFIG.AFFILIATE_URL);
-  const [singlePrice, setSinglePrice] = useState<string>(PLACEHOLDER_CONFIG.SINGLE_PRICE);
-  const [bundlePrice, setBundlePrice] = useState<string>(PLACEHOLDER_CONFIG.BUNDLE_PRICE);
-  const [guaranteePeriod, setGuaranteePeriod] = useState<string>(
-    PLACEHOLDER_CONFIG.GUARANTEE_PERIOD
-  );
+  const affiliateUrl = PLACEHOLDER_CONFIG.AFFILIATE_URL;
+  const singlePrice = PLACEHOLDER_CONFIG.SINGLE_PRICE;
+  const bundlePrice = PLACEHOLDER_CONFIG.BUNDLE_PRICE;
+  const guaranteePeriod = PLACEHOLDER_CONFIG.GUARANTEE_PERIOD;
 
   useEffect(() => {
     const root = document.documentElement;
@@ -86,7 +82,7 @@ export default function App() {
       <Header
         theme={theme}
         onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
-        onOpenDeliverables={() => setDeliverablesOpen(true)}
+        affiliateUrl={affiliateUrl}
       />
 
       <div className="relative z-10 mx-auto max-w-[1320px] px-6 pt-[104px] pb-10">
@@ -127,19 +123,6 @@ export default function App() {
 
       <Footer />
       <BackToTop />
-
-      <DeliverablesModal
-        open={deliverablesOpen}
-        onClose={() => setDeliverablesOpen(false)}
-        affiliateUrl={affiliateUrl}
-        onChangeAffiliateUrl={setAffiliateUrl}
-        singlePrice={singlePrice}
-        onChangeSinglePrice={setSinglePrice}
-        bundlePrice={bundlePrice}
-        onChangeBundlePrice={setBundlePrice}
-        guaranteePeriod={guaranteePeriod}
-        onChangeGuaranteePeriod={setGuaranteePeriod}
-      />
     </div>
   );
 }

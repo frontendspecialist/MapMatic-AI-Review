@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Code2, MapPin, Menu, Moon, Sun, X } from 'lucide-react';
+import { ArrowRight, ExternalLink, MapPin, Menu, Moon, Sun, X } from 'lucide-react';
 
 interface HeaderProps {
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
-  onOpenDeliverables: () => void;
+  affiliateUrl: string;
 }
 
 const NAV_LINKS = [
@@ -15,9 +15,12 @@ const NAV_LINKS = [
   { href: '#mapmatic-ai-faq', label: 'FAQ' },
 ];
 
-export function Header({ theme, onToggleTheme, onOpenDeliverables }: HeaderProps) {
+export function Header({ theme, onToggleTheme, affiliateUrl }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const isPlaceholder = !affiliateUrl.trim() || affiliateUrl.includes('[INSERT');
+  const resolvedHref = isPlaceholder ? '#mapmatic-ai-pricing' : affiliateUrl;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -59,7 +62,7 @@ export function Header({ theme, onToggleTheme, onOpenDeliverables }: HeaderProps
           ))}
         </nav>
 
-        {/* Zone 3: Theme Toggle + Deliverables Export Action */}
+        {/* Zone 3: Theme Toggle + Primary Affiliate CTA */}
         <div className="flex items-center gap-2.5 shrink-0">
           <button
             type="button"
@@ -74,14 +77,20 @@ export function Header({ theme, onToggleTheme, onOpenDeliverables }: HeaderProps
             )}
           </button>
 
-          <button
-            type="button"
-            onClick={onOpenDeliverables}
-            className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#7024E8] to-[#914CFF] dark:from-[#7828FF] dark:to-[#A66BFF] px-4 py-2.5 text-xs font-bold text-white shadow-[0_10px_24px_-8px_rgba(120,40,255,0.45)] hover:opacity-95 transition-opacity whitespace-nowrap shrink-0 cursor-pointer"
+          <a
+            href={resolvedHref}
+            target={isPlaceholder ? undefined : '_blank'}
+            rel={isPlaceholder ? undefined : 'sponsored nofollow noopener'}
+            data-affiliate-cta="header-primary"
+            className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#7024E8] to-[#914CFF] dark:from-[#7828FF] dark:to-[#A66BFF] px-4 py-2.5 text-xs font-bold text-white shadow-[0_10px_24px_-8px_rgba(120,40,255,0.45)] hover:opacity-95 transition-opacity whitespace-nowrap shrink-0"
           >
-            <Code2 className="h-4 w-4" aria-hidden="true" />
-            <span>Blogger XML &amp; Export</span>
-          </button>
+            <span>Get MapMatic AI</span>
+            {isPlaceholder ? (
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            ) : (
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            )}
+          </a>
 
           <button
             type="button"
@@ -112,17 +121,21 @@ export function Header({ theme, onToggleTheme, onOpenDeliverables }: HeaderProps
                 {link.label}
               </a>
             ))}
-            <button
-              type="button"
-              onClick={() => {
-                setMobileOpen(false);
-                onOpenDeliverables();
-              }}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#7024E8] to-[#914CFF] dark:from-[#7828FF] dark:to-[#A66BFF] px-4 py-3 text-sm font-bold text-white cursor-pointer"
+            <a
+              href={resolvedHref}
+              target={isPlaceholder ? undefined : '_blank'}
+              rel={isPlaceholder ? undefined : 'sponsored nofollow noopener'}
+              data-affiliate-cta="header-mobile"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#7024E8] to-[#914CFF] dark:from-[#7828FF] dark:to-[#A66BFF] px-4 py-3 text-sm font-bold text-white"
             >
-              <Code2 className="h-4 w-4" aria-hidden="true" />
-              <span>Blogger XML &amp; Export</span>
-            </button>
+              <span>Get MapMatic AI</span>
+              {isPlaceholder ? (
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              ) : (
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              )}
+            </a>
           </nav>
         </div>
       )}

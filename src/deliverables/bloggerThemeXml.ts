@@ -1,5 +1,6 @@
 import { FAQ_ITEMS, PLACEHOLDER_CONFIG } from '../data/reviewContent';
 import { generateArticleBodyHtml } from './articleHtmlBuilder';
+import { EMBEDDED_XML_IMAGES } from './embeddedXmlImages';
 
 export function generateBloggerXmlTheme(): string {
   const faqSchemaJson = JSON.stringify(
@@ -24,7 +25,7 @@ export function generateBloggerXmlTheme(): string {
 
   return `<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.3' expr:dir='data:blog.languageDirection' lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
   <meta charset='UTF-8'/>
   <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
@@ -51,11 +52,11 @@ export function generateBloggerXmlTheme(): string {
   <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
   <meta expr:content='data:view.isHomepage ? "MapMatic AI Review 2026: Features, Pricing, Mega Bundle Deal &amp; Bonuses Explained" : data:blog.pageName' property='og:title'/>
   <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : "Discover how MapMatic AI helps users create interactive maps, explore AI-powered geographical mapping, and compare $49 Front-End vs $347 Mega Bundle pricing."' property='og:description'/>
-  <meta content='${PLACEHOLDER_CONFIG.FEATURED_IMAGE}' property='og:image'/>
+  <meta expr:content='data:view.featuredImage ? data:view.featuredImage : ""' property='og:image'/>
   <meta content='summary_large_image' name='twitter:card'/>
   <meta expr:content='data:view.isHomepage ? "MapMatic AI Review 2026: Features, Pricing, Mega Bundle Deal &amp; Bonuses Explained" : data:blog.pageName' name='twitter:title'/>
   <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : "MapMatic AI Review 2026: Complete software breakdown, pricing tables, bonuses, and 22+ buyer FAQs."' name='twitter:description'/>
-  <meta content='${PLACEHOLDER_CONFIG.FEATURED_IMAGE}' name='twitter:image'/>
+  <meta expr:content='data:view.featuredImage ? data:view.featuredImage : ""' name='twitter:image'/>
 
   <!-- Preconnect & Google Fonts: Plus Jakarta Sans + Manrope + JetBrains Mono -->
   <link href='https://fonts.googleapis.com' rel='preconnect'/>
@@ -93,18 +94,19 @@ export function generateBloggerXmlTheme(): string {
       BUNDLE_PRICE: '${PLACEHOLDER_CONFIG.BUNDLE_PRICE}',
       GUARANTEE_PERIOD: '${PLACEHOLDER_CONFIG.GUARANTEE_PERIOD}',
       BUNDLE_CONTENTS: '${PLACEHOLDER_CONFIG.BUNDLE_CONTENTS}',
-      FEATURED_IMAGE: '${PLACEHOLDER_CONFIG.FEATURED_IMAGE}',
-      PRODUCT_MAIN_IMAGE: '${PLACEHOLDER_CONFIG.PRODUCT_MAIN_IMAGE}',
-      PRODUCT_SUITE_IMAGE: '${PLACEHOLDER_CONFIG.PRODUCT_SUITE_IMAGE}',
-      PRODUCT_DASHBOARD_IMAGE: '${PLACEHOLDER_CONFIG.PRODUCT_DASHBOARD_IMAGE}',
-      MEGA_BUNDLE_IMAGE: '${PLACEHOLDER_CONFIG.MEGA_BUNDLE_IMAGE}',
-      UPGRADE_1_IMAGE: '${PLACEHOLDER_CONFIG.UPGRADE_1_IMAGE}',
-      UPGRADE_2_IMAGE: '${PLACEHOLDER_CONFIG.UPGRADE_2_IMAGE}',
-      UPGRADE_3_IMAGE: '${PLACEHOLDER_CONFIG.UPGRADE_3_IMAGE}',
-      UPGRADE_4_IMAGE: '${PLACEHOLDER_CONFIG.UPGRADE_4_IMAGE}',
-      UPGRADE_5_IMAGE: '${PLACEHOLDER_CONFIG.UPGRADE_5_IMAGE}',
-      BONUS_1_IMAGE: '${PLACEHOLDER_CONFIG.BONUS_1_IMAGE}',
-      BONUS_2_IMAGE: '${PLACEHOLDER_CONFIG.BONUS_2_IMAGE}'
+      // Optional CDN overrides (leave blank to use the built-in embedded WebP images)
+      FEATURED_IMAGE: '',
+      PRODUCT_MAIN_IMAGE: '',
+      PRODUCT_SUITE_IMAGE: '',
+      PRODUCT_DASHBOARD_IMAGE: '',
+      MEGA_BUNDLE_IMAGE: '',
+      UPGRADE_1_IMAGE: '',
+      UPGRADE_2_IMAGE: '',
+      UPGRADE_3_IMAGE: '',
+      UPGRADE_4_IMAGE: '',
+      UPGRADE_5_IMAGE: '',
+      BONUS_1_IMAGE: '',
+      BONUS_2_IMAGE: ''
     };
     //]]>
   </script>
@@ -410,7 +412,19 @@ html[data-theme="light"] .mm-ambient-glow {
 }
 
 .mm-ad-slot:empty,
-.mm-ad-slot.is-empty {
+.mm-ad-slot.is-empty,
+.mm-ad-slot.no-items {
+  display: none;
+  margin: 0;
+  min-height: 0;
+}
+
+.mm-sidebar-toc-section.no-items,
+.mm-right-sidebar-extra.no-items,
+.mm-main-blog-section.no-items,
+.mm-footer-widgets.no-items,
+.mm-hidden-header-widget,
+.mm-social-bar-section.no-items {
   display: none;
   margin: 0;
 }
@@ -1404,35 +1418,31 @@ ${faqSchemaJson}
           </div>
         </div>
 
-        <!-- SECTION 3: MAIN REVIEW LANDING PAGE (MERGED COMPLETE SINGLE-PAGE WIDGET) -->
+        <!-- COMPLETE HOMEPAGE REVIEW LANDING PAGE (ALWAYS RENDERED DIRECTLY, NEVER BLOCKED BY NO-ITEMS) -->
+        <b:if cond='data:view.isHomepage or data:view.isMultipleItems or data:view.isError'>
+          <article class='mm-post-wrapper mm-article-root' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+            <meta content='MapMatic AI Review 2026: Features, Pricing, Mega Bundle Deal &amp; Bonuses Explained' itemprop='headline'/>
+            <meta expr:content='data:blog.canonicalUrl' itemprop='mainEntityOfPage'/>
+            <div class='mm-post-body-content' id='mm-article-content' itemprop='articleBody'>
+${generateArticleBodyHtml(EMBEDDED_XML_IMAGES)}
+            </div>
+          </article>
+        </b:if>
+
+        <!-- SECTION 3: MAIN BLOGGER POSTS/PAGES WIDGET (ACTIVE ON /p/*.html STATIC PAGES & SINGLE POSTS) -->
         <b:section class='mm-main-blog-section' id='main-review-section' name='Main Review Landing Page' showaddelement='no'>
           <b:widget id='Blog1' locked='true' title='Main Review Landing Page' type='Blog' version='2' visible='true'>
             <b:includable id='main' var='top'>
-              <b:if cond='data:view.isHomepage or data:posts.empty'>
-                <article class='mm-post-wrapper mm-article-root' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
-                  <meta content='MapMatic AI Review 2026: Features, Pricing, Mega Bundle Deal &amp; Bonuses Explained' itemprop='headline'/>
-                  <meta expr:content='data:blog.canonicalUrl' itemprop='mainEntityOfPage'/>
-                  <meta content='${PLACEHOLDER_CONFIG.FEATURED_IMAGE}' itemprop='image'/>
-                  <div class='mm-post-body-content' id='mm-article-content' itemprop='articleBody'>
-${generateArticleBodyHtml()}
-                  </div>
-                </article>
-              <b:else/>
+              <b:if cond='!data:view.isHomepage and !data:view.isMultipleItems and !data:view.isError'>
                 <b:loop values='data:posts' var='post'>
                   <article class='mm-post-wrapper' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
                     <meta expr:content='data:post.title' itemprop='headline'/>
                     <meta expr:content='data:post.url' itemprop='mainEntityOfPage'/>
-                    <meta expr:content='data:post.featuredImage ? data:post.featuredImage : "${PLACEHOLDER_CONFIG.FEATURED_IMAGE}"' itemprop='image'/>
+                    <meta expr:content='data:post.featuredImage ? data:post.featuredImage : ""' itemprop='image'/>
                     <meta expr:content='data:post.timestampISO8601' itemprop='datePublished'/>
                     <meta expr:content='data:post.lastUpdatedISO8601' itemprop='dateModified'/>
-                    <b:if cond='data:post.featuredImage'>
-                      <figure class='mm-media-frame mm-featured-media' style='margin-bottom:20px;'>
-                        <a class='mm-aff-link mm-aff-img-link' href='${PLACEHOLDER_CONFIG.AFFILIATE_URL}' rel='sponsored nofollow noopener' target='_blank'>
-                          <div class='mm-img-shell mm-studio-img-wrap'>
-                            <img expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
-                          </div>
-                        </a>
-                      </figure>
+                    <b:if cond='data:post.title'>
+                      <h1 class='mm-h1'><data:post.title/></h1>
                     </b:if>
                     <div class='mm-post-body-content' id='mm-article-content' itemprop='articleBody'>
                       <data:post.body/>
@@ -1460,19 +1470,20 @@ ${generateArticleBodyHtml()}
       <!-- RIGHT STICKY SIDEBAR (28% Desktop) -->
       <aside aria-label='Article Table of Contents and Sidebar' class='mm-sidebar-column' id='right-sidebar'>
 
-        <!-- SECTION 5: SIDEBAR TABLE OF CONTENTS -->
+        <!-- STATIC TABLE OF CONTENTS AT TOP OF STICKY SIDEBAR -->
+        <nav aria-label='Table of Contents' class='mm-toc-box'>
+          <h2 class='mm-toc-title'>On This Page</h2>
+          <ul class='mm-toc-list' id='mm-desktop-toc-list'></ul>
+        </nav>
+
+        <!-- SECTION 5: SIDEBAR TABLE OF CONTENTS WIDGET SLOT -->
         <b:section class='mm-sidebar-toc-section' id='sidebar-toc-section' maxwidgets='1' name='Sidebar Table of Contents' showaddelement='yes'>
           <b:widget id='HTML3' locked='false' title='Sidebar Table of Contents' type='HTML' version='2' visible='true'>
-            <b:includable id='main'>
-              <nav aria-label='Table of Contents' class='mm-toc-box'>
-                <h2 class='mm-toc-title'>On This Page</h2>
-                <ul class='mm-toc-list' id='mm-desktop-toc-list'></ul>
-              </nav>
-            </b:includable>
+            <b:includable id='main'/>
           </b:widget>
         </b:section>
 
-        <!-- SECTION 6: SIDEBAR 250x300 ADSTERRA BANNER -->
+        <!-- SECTION 6: SIDEBAR 250x300 ADSTERRA BANNER (DIRECTLY BELOW TOC) -->
         <b:section class='mm-ad-slot mm-ad-250' id='sidebar-ad-section' maxwidgets='1' name='Sidebar 250x300 Advertisement' showaddelement='yes'>
           <b:widget id='HTML4' locked='false' title='Adsterra 250x300 Banner' type='HTML' version='2' visible='true'>
             <b:includable id='main'>
@@ -1483,16 +1494,17 @@ ${generateArticleBodyHtml()}
           </b:widget>
         </b:section>
 
+        <!-- VERIFIED OFFER QUICK ACCESS CARD (DIRECTLY RENDERED) -->
+        <div class='mm-card' style='padding:18px;'>
+          <div class='mm-card-kicker'>Verified Offer Access</div>
+          <p class='mm-body-p' style='font-size:13px; margin-bottom:12px;'>Check live single-purchase pricing ($49), Mega Bundle upgrades ($347), and 30-day refund details on the official vendor page.</p>
+          <a class='mm-btn mm-btn-primary mm-full-btn mm-aff-link' href='${PLACEHOLDER_CONFIG.AFFILIATE_URL}' rel='sponsored nofollow noopener' style='padding:10px 14px; font-size:13px;' target='_blank'>Visit Official Offer</a>
+        </div>
+
         <!-- SECTION 4: RIGHT SIDEBAR EXTRA WIDGETS -->
         <b:section class='mm-right-sidebar-extra' id='right-sidebar-section' maxwidgets='3' name='Right Sidebar' showaddelement='yes'>
           <b:widget id='HTML5' locked='false' title='Official Offer Quick Access' type='HTML' version='2' visible='true'>
-            <b:includable id='main'>
-              <div class='mm-card' style='padding:18px;'>
-                <div class='mm-card-kicker'>Verified Offer Access</div>
-                <p class='mm-body-p' style='font-size:13px; margin-bottom:12px;'>Check live single-purchase pricing, Mega Bundle upgrades, and refund details on the vendor page.</p>
-                <a class='mm-btn mm-btn-primary mm-full-btn mm-aff-link' href='${PLACEHOLDER_CONFIG.AFFILIATE_URL}' rel='sponsored nofollow noopener' style='padding:10px 14px; font-size:13px;' target='_blank'>Visit Official Offer</a>
-              </div>
-            </b:includable>
+            <b:includable id='main'/>
           </b:widget>
         </b:section>
 
@@ -1540,15 +1552,22 @@ ${generateArticleBodyHtml()}
 
         <div>
           <h3 class='mm-h3' style='font-size:15px;'>Compliance &amp; Legal</h3>
+          <ul class='mm-footer-links mm-static-legal-links' id='mm-static-legal-links'>
+            <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
+            <li><a href='/p/affiliate-disclosure.html'>Affiliate Disclosure</a></li>
+            <li><a href='/p/terms-and-conditions.html'>Terms and Conditions</a></li>
+            <li><a href='/p/contact.html'>Contact</a></li>
+          </ul>
           <b:section class='mm-footer-widgets' id='footer-widgets-section' maxwidgets='2' name='Footer Widgets' showaddelement='yes'>
             <b:widget id='LinkList1' locked='false' title='Legal Navigation' type='LinkList' version='2' visible='true'>
               <b:includable id='main'>
-                <ul class='mm-footer-links'>
-                  <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
-                  <li><a href='/p/affiliate-disclosure.html'>Affiliate Disclosure</a></li>
-                  <li><a href='/p/terms-and-conditions.html'>Terms and Conditions</a></li>
-                  <li><a href='/p/contact.html'>Contact</a></li>
-                </ul>
+                <b:if cond='data:links'>
+                  <ul class='mm-footer-links mm-widget-legal-links'>
+                    <b:loop values='data:links' var='link'>
+                      <li><a expr:href='data:link.target'><data:link.name/></a></li>
+                    </b:loop>
+                  </ul>
+                </b:if>
               </b:includable>
             </b:widget>
           </b:section>
@@ -1844,20 +1863,26 @@ ${generateArticleBodyHtml()}
         });
       });
 
-      // 9. GSAP ScrollTrigger Animations (Respects prefers-reduced-motion)
+      // 9. Deduplicate Static Legal Links if Blogger LinkList1 Gadget Is Populated
+      var widgetLegal = document.querySelector('#footer-widgets-section .mm-widget-legal-links li');
+      var staticLegal = document.getElementById('mm-static-legal-links');
+      if (widgetLegal && staticLegal) {
+        staticLegal.style.display = 'none';
+      }
+
+      // 10. GSAP Subtle Motion (Never Hides Content at opacity: 0)
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduceMotion && window.gsap && window.ScrollTrigger) {
         window.gsap.registerPlugin(window.ScrollTrigger);
         window.gsap.utils.toArray('.mm-reveal').forEach(function(el) {
           window.gsap.from(el, {
-            y: 18,
-            opacity: 0,
-            duration: 0.55,
+            y: 12,
+            duration: 0.45,
             ease: 'power2.out',
-            clearProps: 'transform,opacity',
+            clearProps: 'transform',
             scrollTrigger: {
               trigger: el,
-              start: 'top 90%',
+              start: 'top 95%',
               once: true
             }
           });

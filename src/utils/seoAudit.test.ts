@@ -82,9 +82,11 @@ test('Single Complete Blogger XML theme merges full review landing page, all 10 
   const xmlAffLinks = countAffiliateLinks(xml);
   assert.ok(xmlAffLinks >= 16, `Expected >= 16 affiliate links inside merged XML, got ${xmlAffLinks}`);
 
-  assert.ok(xml.includes("cond='data:view.isHomepage or data:posts.empty'"), 'Expected homepage single-landing-page Blog1 condition');
+  assert.ok(xml.includes("cond='data:view.isHomepage or data:view.isMultipleItems or data:view.isError'"), 'Expected direct homepage landing page condition outside Blog1');
   assert.ok(xml.includes('Pricing Table 1:') && xml.includes('Pricing Table 2:') && xml.includes('Pricing Table 3:'), 'Expected all 3 pricing tables merged inside single XML');
-  assert.ok(xml.includes('/assets/products/frontend-mapmatic.png') && xml.includes('/assets/products/bonus2-mobicentric.png'), 'Expected cropped product & bonus images inside merged XML');
+  assert.ok(xml.includes('data:image/webp;base64,'), 'Expected embedded self-contained WebP data URI images inside XML');
+  assert.ok(!/src="\/assets\//.test(xml), 'Expected zero unresolved relative /assets/ image src attributes inside Blogger XML');
+  assert.ok(Buffer.byteLength(xml, 'utf8') < 1_500_000, `Expected XML under 1.5MB Blogger upload limit, got ${Buffer.byteLength(xml, 'utf8')} bytes`);
   assert.ok(xml.includes("property='og:image'"), 'Expected og:image meta tag in Blogger XML');
   assert.ok(xml.includes("name='twitter:image'"), 'Expected twitter:image meta tag in Blogger XML');
   assert.ok(xml.includes("itemprop='image'"), 'Expected BlogPosting schema image meta tag');

@@ -75,7 +75,9 @@ function renderCtaBlock(ctaKey: keyof typeof CTA_PLACEMENTS): string {
 </div>`;
 }
 
-export function generateArticleBodyHtml(): string {
+export function generateArticleBodyHtml(imageOverrides?: Record<string, string>): string {
+  const imgSrc = (key: keyof typeof PLACEHOLDER_CONFIG): string =>
+    (imageOverrides && imageOverrides[key]) || PLACEHOLDER_CONFIG[key];
   const parts: string[] = [];
 
   // Hero / Intro + Featured Image inside post
@@ -97,7 +99,7 @@ export function generateArticleBodyHtml(): string {
       <span class="mm-mono">FE $49 · Mega Bundle $347</span>
     </div>
     ${renderProductImageLink(
-      PLACEHOLDER_CONFIG.FEATURED_IMAGE,
+      imgSrc('FEATURED_IMAGE'),
       'MapMatic Bundle Featured Image — All-In-One Local Business Growth Suite',
       'Featured Showcase: MapMatic AI All-In-One Suite covering Local Map Search, AI Website Creation, Review Management, Multichannel Outreach, Agency Toolkit, and Reseller License.',
       'mm-featured-media',
@@ -157,7 +159,7 @@ export function generateArticleBodyHtml(): string {
   <h2 class="mm-h2">What Is MapMatic AI?</h2>
   ${INTRODUCTION_PARAGRAPHS.map((p) => `<p class="mm-body-p">${escapeHtml(p)}</p>`).join('\n  ')}
   ${renderProductImageLink(
-    PLACEHOLDER_CONFIG.PRODUCT_SUITE_IMAGE,
+    imgSrc('PRODUCT_SUITE_IMAGE'),
     'Complete 6-Product MapMatic AI Ecosystem Boxes Lineup',
     'Complete MapMatic AI 6-Product Suite: Unlimited Edition, DFY AgencyVault + Sales Toolkit, MapMatic AI Front-End, Reputation Management App, Multichannel Sales Outreach, and Reseller License.',
     '',
@@ -184,7 +186,7 @@ export function generateArticleBodyHtml(): string {
     ).join('\n')}
   </div>
   ${renderProductImageLink(
-    PLACEHOLDER_CONFIG.PRODUCT_DASHBOARD_IMAGE,
+    imgSrc('PRODUCT_DASHBOARD_IMAGE'),
     'Front-End MapMatic AI ($67 Value) — Local Business Prospecting and AI-Powered Websites',
     'Front-End MapMatic AI ($67 Value Card · $49 Launch Price): Local Business Prospecting & Website Opportunity Discovery System.',
     '',
@@ -217,9 +219,9 @@ export function generateArticleBodyHtml(): string {
       <div class="mm-card-kicker">${escapeHtml(card.badge)}</div>
       <h3 class="mm-h3">${escapeHtml(card.name)}</h3>
       <a class="mm-aff-img-link mm-bundle-thumb" href="${PLACEHOLDER_CONFIG.AFFILIATE_URL}" target="_blank" rel="sponsored nofollow noopener">
-        <img data-mm-img="${idx === 0 ? 'PRODUCT_DASHBOARD_IMAGE' : idx === 1 ? 'MEGA_BUNDLE_IMAGE' : 'PRODUCT_SUITE_IMAGE'}" src="${escapeHtml(card.imageUrl)}" alt="${escapeHtml(card.name)}" width="800" height="500" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <img data-mm-img="${idx === 0 ? 'PRODUCT_DASHBOARD_IMAGE' : idx === 1 ? 'MEGA_BUNDLE_IMAGE' : 'PRODUCT_SUITE_IMAGE'}" src="${escapeHtml(imgSrc(idx === 0 ? 'PRODUCT_DASHBOARD_IMAGE' : idx === 1 ? 'MEGA_BUNDLE_IMAGE' : 'PRODUCT_SUITE_IMAGE'))}" alt="${escapeHtml(card.name)}" width="800" height="500" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <div class="mm-img-fallback" style="display:none;">
-          <span class="mm-img-fallback-code">${escapeHtml(card.imageUrl)}</span>
+          <span class="mm-img-fallback-code">MapMatic AI</span>
           <span class="mm-img-fallback-title">${escapeHtml(card.name)}</span>
         </div>
       </a>
@@ -354,9 +356,9 @@ export function generateArticleBodyHtml(): string {
       (bonus, idx) => `
     <div class="mm-card mm-bonus-card mm-reveal">
       <a class="mm-aff-img-link mm-bundle-thumb" href="${PLACEHOLDER_CONFIG.AFFILIATE_URL}" target="_blank" rel="sponsored nofollow noopener">
-        <img data-mm-img="BONUS_${idx + 1}_IMAGE" src="${escapeHtml(bonus.imageUrl)}" alt="${escapeHtml(bonus.title)}" width="800" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <img data-mm-img="BONUS_${idx + 1}_IMAGE" src="${escapeHtml(imgSrc(`BONUS_${idx + 1}_IMAGE` as keyof typeof PLACEHOLDER_CONFIG))}" alt="${escapeHtml(bonus.title)}" width="800" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <div class="mm-img-fallback" style="display:none;">
-          <span class="mm-img-fallback-code">${escapeHtml(bonus.imageUrl)}</span>
+          <span class="mm-img-fallback-code">Bonus #${idx + 1}</span>
           <span class="mm-img-fallback-title">${escapeHtml(bonus.title)}</span>
         </div>
       </a>
@@ -406,9 +408,9 @@ export function generateArticleBodyHtml(): string {
     <div class="mm-card mm-upgrade-card mm-reveal">
       <div class="mm-upgrade-media">
         <a class="mm-aff-img-link" href="${PLACEHOLDER_CONFIG.AFFILIATE_URL}" target="_blank" rel="sponsored nofollow noopener">
-          <img data-mm-img="${idx === 0 ? 'PRODUCT_DASHBOARD_IMAGE' : `UPGRADE_${idx}_IMAGE`}" src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.imageAlt)}" width="640" height="400" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <img data-mm-img="${idx === 0 ? 'PRODUCT_DASHBOARD_IMAGE' : `UPGRADE_${idx}_IMAGE`}" src="${escapeHtml(imgSrc((idx === 0 ? 'PRODUCT_DASHBOARD_IMAGE' : `UPGRADE_${idx}_IMAGE`) as keyof typeof PLACEHOLDER_CONFIG))}" alt="${escapeHtml(item.imageAlt)}" width="640" height="400" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <div class="mm-img-fallback" style="display:none;">
-            <span class="mm-img-fallback-code">${escapeHtml(item.imageUrl)}</span>
+            <span class="mm-img-fallback-code">${escapeHtml(item.tierLabel)}</span>
             <span class="mm-img-fallback-title">${escapeHtml(item.title)}</span>
           </div>
         </a>

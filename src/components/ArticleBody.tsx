@@ -165,18 +165,6 @@ export function ArticleBody({
         </div>
       </section>
 
-      {/* Blogger Layout Slot: Adsterra 728x90 Banner */}
-      <div
-        aria-label="Top 728x90 Advertisement Layout Slot"
-        className="my-7 flex min-h-[90px] w-full flex-col items-center justify-center rounded-2xl border border-dashed border-[#E7E1EF] dark:border-[#34313E] bg-[#F6F4FA]/70 dark:bg-[#191A20]/70 px-4 py-4 text-center"
-      >
-        <span className="font-mono-tabular text-[11px] font-semibold text-[#7024E8] dark:text-[#A66BFF]">
-          Blogger Gadget Slot: HTML1 (Top Banner Advertisement)
-        </span>
-        <span className="mt-0.5 font-display text-sm font-bold text-[#171421] dark:text-white">
-          Adsterra 728x90 Banner
-        </span>
-      </div>
 
       {/* D. Quick Review Summary */}
       <section id="quick-review-summary" className="scroll-anchor mt-12 mm-reveal">
@@ -290,18 +278,6 @@ export function ArticleBody({
         <AffiliateCtaButton cta={CTA_PLACEMENTS.productImage} affiliateUrl={affiliateUrl} boxed />
       </section>
 
-      {/* Blogger Layout Slot: Adsterra Native Banner */}
-      <div
-        aria-label="Adsterra Native Banner Layout Slot"
-        className="my-8 flex min-h-[110px] w-full flex-col items-center justify-center rounded-2xl border border-dashed border-[#E7E1EF] dark:border-[#34313E] bg-[#F6F4FA]/70 dark:bg-[#191A20]/70 px-4 py-5 text-center"
-      >
-        <span className="font-mono-tabular text-[11px] font-semibold text-[#7024E8] dark:text-[#A66BFF]">
-          Blogger Gadget Slot: HTML2 (Native Advertisement)
-        </span>
-        <span className="mt-0.5 font-display text-sm font-bold text-[#171421] dark:text-white">
-          Adsterra Native Banner
-        </span>
-      </div>
 
       {/* G. MapMatic AI Mega Bundle Deal */}
       <section id="mapmatic-ai-mega-bundle" className="scroll-anchor mt-12">

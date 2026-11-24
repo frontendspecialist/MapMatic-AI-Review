@@ -6,7 +6,7 @@ type LegalDocKey = 'privacy' | 'disclosure' | 'terms' | 'contact' | null;
 const LEGAL_COPY: Record<Exclude<LegalDocKey, null>, { title: string; body: string }> = {
   privacy: {
     title: 'Privacy Policy',
-    body: 'This MapMatic AI Review theme stores only your chosen Dark/Light mode preference inside browser localStorage. When installed on Blogger, standard Google Blogger and third-party Adsterra advertising scripts (if added by the site owner) operate under their respective privacy policies.',
+    body: 'This MapMatic AI Review website stores only your chosen Dark/Light mode preference inside browser localStorage and does not require user accounts or tracking cookies.',
   },
   disclosure: {
     title: 'Affiliate Disclosure',
@@ -18,7 +18,7 @@ const LEGAL_COPY: Record<Exclude<LegalDocKey, null>, { title: string; body: stri
   },
   contact: {
     title: 'Contact Information',
-    body: 'For editorial corrections, updated official pricing submissions, or Blogger theme setup questions, replace this page route (/p/contact.html) in Blogger Pages with your site contact form.',
+    body: 'For editorial corrections or updated official pricing submissions regarding MapMatic AI, please reach out through our editorial contact channel.',
   },
 };
 
@@ -126,7 +126,7 @@ export function Footer() {
 
           <div className="pt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-[#666273] dark:text-[#B8B8C4]">
             <span>Copyright © {currentYear} MAPMATIC AI REVIEW. All Rights Reserved.</span>
-            <span>Adsterra Social Bar Gadget Slot: HTML7 (Footer Global)</span>
+            <span>Independent Affiliate Review Publication</span>
           </div>
         </div>
       </footer>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronRight, ExternalLink, ShieldCheck } from 'lucide-react';
 
 export interface TocHeadingGroup {
   id: string;
@@ -65,9 +65,12 @@ export function useArticleToc(contentVersion = 0) {
   return { groups, activeId };
 }
 
-export function StickySidebarToc(_props: StickySidebarTocProps) {
-  const { groups, activeId } = useArticleToc();
+export function StickySidebarToc({ affiliateUrl = '', contentVersion }: StickySidebarTocProps) {
+  const { groups, activeId } = useArticleToc(contentVersion);
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
+
+  const isPlaceholder = !affiliateUrl.trim() || affiliateUrl.includes('[INSERT');
+  const resolvedHref = isPlaceholder ? '#mapmatic-ai-pricing' : affiliateUrl;
 
   const toggleGroup = (id: string) => {
     setExpandedGroups((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -75,7 +78,7 @@ export function StickySidebarToc(_props: StickySidebarTocProps) {
 
   return (
     <aside
-      aria-label="Table of Contents and Sidebar Adbox"
+      aria-label="Table of Contents and Official Offer Access"
       data-testid="sticky-sidebar"
       className="hidden lg:flex flex-col gap-4 sticky top-[88px]"
     >
@@ -83,7 +86,7 @@ export function StickySidebarToc(_props: StickySidebarTocProps) {
       <nav
         aria-label="Table of Contents"
         data-testid="sidebar-toc"
-        className="rounded-2xl border border-[#E7E1EF] dark:border-[#34313E] bg-white dark:bg-[#202129] p-4 shadow-sm max-h-[calc(100vh-375px)] min-h-[200px] overflow-y-auto"
+        className="rounded-2xl border border-[#E7E1EF] dark:border-[#34313E] bg-white dark:bg-[#202129] p-4 shadow-sm max-h-[calc(100vh-420px)] min-h-[180px] overflow-y-auto"
       >
         <h2 className="font-display text-xs font-extrabold uppercase tracking-wider text-[#171421] dark:text-white mb-2">
           Table of Contents
@@ -149,21 +152,40 @@ export function StickySidebarToc(_props: StickySidebarTocProps) {
         </ul>
       </nav>
 
-      {/* 2. Adsterra 250x300 Adbox directly below Static Table of Contents */}
+      {/* 2. Official Offer Quick Access Card directly below Static Table of Contents */}
       <div
-        aria-label="Sidebar 250x300 Advertisement Layout Slot"
-        data-testid="sidebar-adbox"
-        className="mx-auto flex h-[250px] w-full max-w-[300px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#E7E1EF] dark:border-[#34313E] bg-[#F6F4FA]/75 dark:bg-[#191A20]/80 p-4 text-center"
+        aria-label="Official MapMatic AI Offer Summary"
+        data-testid="sidebar-offer-card"
+        className="w-full rounded-2xl border border-[#7024E8]/30 dark:border-[#7828FF]/40 bg-gradient-to-b from-[#7024E8]/[0.08] via-white to-white dark:from-[#7828FF]/[0.16] dark:via-[#202129] dark:to-[#191A20] p-4 shadow-sm"
       >
-        <span className="font-mono-tabular text-[11px] font-semibold text-[#7024E8] dark:text-[#A66BFF]">
-          Blogger Gadget Slot: HTML4
-        </span>
-        <span className="mt-1 font-display text-sm font-bold text-[#171421] dark:text-white">
-          Adsterra 250x300 Adbox
-        </span>
-        <span className="mt-1 text-xs text-[#666273] dark:text-[#B8B8C4]">
-          Positioned directly below sticky Table of Contents
-        </span>
+        <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#7024E8] dark:text-[#DCC8FF]">
+          <ShieldCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>Verified Launch Offer</span>
+        </div>
+        <h3 className="mt-1.5 font-display text-sm font-extrabold leading-snug text-[#171421] dark:text-white">
+          MapMatic AI + Mega Bundle Deal
+        </h3>
+        <p className="mt-1 text-xs leading-relaxed text-[#666273] dark:text-[#B8B8C4]">
+          Compare the $49 Front-End license against the $347 all-inclusive Mega Bundle with 5 upgrades and both bonuses.
+        </p>
+        <div className="mt-2.5 flex items-center justify-between rounded-xl border border-[#E7E1EF] dark:border-[#34313E] bg-[#F6F4FA] dark:bg-[#191A20] px-3 py-1.5 text-xs">
+          <span className="font-semibold text-[#666273] dark:text-[#B8B8C4]">Guarantee</span>
+          <span className="font-bold text-[#171421] dark:text-white">30-Day Money-Back</span>
+        </div>
+        <a
+          href={resolvedHref}
+          target={isPlaceholder ? undefined : '_blank'}
+          rel={isPlaceholder ? undefined : 'sponsored nofollow noopener'}
+          data-affiliate-cta="sidebar-offer"
+          className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#7024E8] to-[#914CFF] dark:from-[#7828FF] dark:to-[#A66BFF] px-4 py-2.5 text-xs font-bold text-white shadow-[0_10px_24px_-8px_rgba(120,40,255,0.45)] hover:opacity-95 transition-opacity"
+        >
+          <span>Access Official Offer</span>
+          {isPlaceholder ? (
+            <ArrowRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          ) : (
+            <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          )}
+        </a>
       </div>
     </aside>
   );

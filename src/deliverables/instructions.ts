@@ -1,37 +1,24 @@
-export const DELIVERABLE_3_AFFILIATE_CONFIG = `# Deliverable 3: Single-File Affiliate Link, Product Images & Pricing Configuration
+export const DELIVERABLE_3_AFFILIATE_CONFIG = `# Deliverable 3: Single-File Affiliate Link Configuration (Images Already Embedded!)
 
-Everything — the full 4,000+ word review, Hero Featured Image, 3 Pricing Tables, Mega Bundle Deal, Front-End + Upgrades #1–#5, Bonus #1 & #2, 22 FAQs, 16+ CTAs, CSS, JS, and all 10 Blogger Layout widgets — is merged inside **ONE complete XML file** (\`mapmatic-ai-review-theme.xml\`).
+Everything — the full 4,000+ word review, Hero Featured Image, 3 Pricing Tables, Mega Bundle Deal, Front-End + Upgrades #1–#5, Bonus #1 & #2, 22 FAQs, 16+ CTAs, **all 10 self-contained WebP product images**, CSS, JS, and all 10 Blogger Layout widgets — is merged inside **ONE complete XML file** (\`mapmatic-ai-review-theme.xml\`).
 
-## 1. Where to Edit in \`mapmatic-ai-review-theme.xml\`
+## 1. Where to Edit in \`mapmatic-ai-review-theme.xml\` (Affiliate Link Only)
 1. Open **Blogger Dashboard -> Theme -> Customize dropdown -> Edit HTML** (or edit \`mapmatic-ai-review-theme.xml\` locally before uploading).
 2. Press \`Ctrl + F\` (or \`Cmd + F\`) and search for \`window.MAPMATIC_CONFIG\`.
-3. Update \`AFFILIATE_URL\` and image URLs once — all 16+ CTA buttons and all \`img[data-mm-img]\` product images update automatically on page load:
+3. Replace **ONLY** \`AFFILIATE_URL\` — all 16+ CTA buttons and clickable product cards across the entire page update automatically:
 
 \`\`\`javascript
 window.MAPMATIC_CONFIG = {
   AFFILIATE_URL: 'https://your-verified-affiliate-link.example',
   SINGLE_PRICE: '$49 One-Time (Front-End License)',
   BUNDLE_PRICE: '$347 Low One-Time Fee (Normal: $997 · Save $697)',
-  GUARANTEE_PERIOD: '30-Day 100% Money-Back Guarantee (No Risk · JVZoo)',
-  FEATURED_IMAGE: '/assets/aistudio/image_fc1ead36.png',
-  PRODUCT_SUITE_IMAGE: '/assets/aistudio/image_08402075.png',
-  PRODUCT_DASHBOARD_IMAGE: '/assets/products/frontend-mapmatic.png',
-  MEGA_BUNDLE_IMAGE: '/assets/aistudio/image_fc1ead36.png',
-  UPGRADE_1_IMAGE: '/assets/products/upgrade1-unlimited.png',
-  UPGRADE_2_IMAGE: '/assets/products/upgrade2-agencyvault.png',
-  UPGRADE_3_IMAGE: '/assets/products/upgrade3-reputation.png',
-  UPGRADE_4_IMAGE: '/assets/products/upgrade4-outreach.png',
-  UPGRADE_5_IMAGE: '/assets/products/upgrade5-reseller.png',
-  BONUS_1_IMAGE: '/assets/products/bonus1-ada-suite.png',
-  BONUS_2_IMAGE: '/assets/products/bonus2-mobicentric.png'
+  GUARANTEE_PERIOD: '30-Day 100% Money-Back Guarantee (No Risk · JVZoo)'
 };
 \`\`\`
 
-Because \`window.MAPMATIC_CONFIG\` sits inside a \`//<![CDATA[ ... //]]>\` block, query parameters containing \`&\`, \`?\`, or \`=\` never cause Blogger XML syntax errors.
+All 10 product, bundle, upgrade, and bonus images are already embedded directly inside the XML as optimized WebP images so they display immediately on \`*.blogspot.com\` without needing external image hosting.
 
-## 2. Hosting Product Images on a Live Blogger Domain
-- Upload the clean PNGs from \`public/assets/aistudio/\` and \`public/assets/products/\` to your Blogger draft/CDN and paste their \`https://...\` image URLs into \`window.MAPMATIC_CONFIG\` (plus \`og:image\` / \`twitter:image\`).
-- All affiliate links include \`target="_blank" rel="sponsored nofollow noopener"\`.`;
+Because \`window.MAPMATIC_CONFIG\` sits inside a \`//<![CDATA[ ... //]]>\` block, query parameters containing \`&\`, \`?\`, or \`=\` never cause Blogger XML syntax errors. All affiliate links include \`target="_blank" rel="sponsored nofollow noopener"\`.`;
 
 export const DELIVERABLE_4_ADSTERRA_GUIDE = `# Deliverable 4: Adsterra Advertisement Integration Guide (All Layout Widgets Included)
 
